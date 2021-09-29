@@ -21,8 +21,10 @@ public class OrderServiceImpl implements OrderService{
     //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     private DiscountPolicy discountPolicy;
 
-    @Autowired
+    @Autowired//생성자 주입은 단일 생성자일 경우 자동으로 autowired 가 된다
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("memberRepository = " + memberRepository);
+        System.out.println("discountPolicy = " + discountPolicy);
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
