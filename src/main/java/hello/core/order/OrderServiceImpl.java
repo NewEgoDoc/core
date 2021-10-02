@@ -9,10 +9,11 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component//("service")//충돌
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 /*
     private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -23,15 +24,15 @@ public class OrderServiceImpl implements OrderService{
     //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     private final DiscountPolicy discountPolicy;
 
-    /* 해당내용은 final 필드값을 찾아서 autowired 된 생성자를 lombok의 @RequiredArgsConstructor가 만들어준다.
+    /* 해당내용은 final 필드값을 찾아서 autowired 된 생성자를 lombok의 @RequiredArgsConstructor가 만들어준다.*/
     @Autowired//생성자 주입은 단일 생성자일 경우 자동으로 autowired 가 된다
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy) {
         System.out.println("memberRepository = " + memberRepository);
         System.out.println("discountPolicy = " + discountPolicy);
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-    */
+
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
